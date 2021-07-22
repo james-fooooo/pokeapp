@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { getStaticPokemonByGen } from '../lib/utils/static-utils';
 import { Layout } from "../components/Layout"
+import { Card } from "../components/Card"
+import { PokemonCards } from "../components/PokemonCards"
 import classes from '../styles/Home.module.css';
 
 
@@ -11,9 +13,16 @@ export default function Home({ pokemon }) {
   // const { deck, clearDeck, downloadDeck, randomizeDeck, fetchDeck, toggleHandler, isSelected } = useDeck();
   return (
     <Layout title="Home">
-    
-      <h1>Cards</h1>
-      <div>A Pokemon Minigame</div>
+      <div></div>
+      <div>
+        <PokemonCards>
+          {
+            pokemon.map(p => {
+              return <Card pokemon={p}></Card>
+            })
+          }
+        </PokemonCards>
+      </div>
       </Layout>
   );
 }
